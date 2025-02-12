@@ -1,0 +1,5 @@
+{
+  "error_message": "Problemas com o login do usuário",
+  "required_email_message": "Email é um campo obrigatório",
+  "required_pass_message": "Senha é um campo obrigatório"
+}
