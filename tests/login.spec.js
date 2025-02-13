@@ -1,10 +1,10 @@
 // @ts-nocheck
-const { test, expect } = require('@playwright/test');
-const LoginPage = require('../pages/login-page');
-const HomePage = require('../pages/home-page')
-const data = require('../utils/data/login.json')
-const login = require('../utils/messages/login.json')
-const home = require('../utils/messages/home.json')
+import { test, expect } from '@playwright/test';
+import { LoginPage } from '../pages/login-page';
+import { HomePage } from '../pages/home-page';
+import data from '../utils/data/login.json';
+import login from '../utils/messages/login.json';
+import home from '../utils/messages/home.json';
 
 let loginPage = LoginPage
 let homePage = HomePage

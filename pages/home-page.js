@@ -1,6 +1,6 @@
-const { expect } = require('@playwright/test'); 
+import { expect } from '@playwright/test';
 
-class HomePage {
+export class HomePage {
     constructor(page) {
       this.page = page;
       this.error_alert = '.alert.alert-success'
@@ -10,5 +10,3 @@ class HomePage {
       await expect(this.page.locator(this.error_alert)).toHaveText(expectMessage);
     }
   }
-  
-  module.exports = HomePage;

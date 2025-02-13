@@ -1,6 +1,7 @@
-const { expect } = require('@playwright/test'); 
+import { expect } from '@playwright/test';
 
-class LoginPage {
+export class LoginPage {
+  
   constructor(page) {
     this.page = page;
     this.email = "#email",
@@ -34,5 +35,3 @@ class LoginPage {
     expect(await this.page.locator(this.error_alert).allTextContents()).toEqual(expectMessages);
   }
 }
-
-module.exports = LoginPage;
