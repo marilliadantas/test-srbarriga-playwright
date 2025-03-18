@@ -1,13 +1,10 @@
 import { expect } from '@playwright/test';
+import { login } from '../elements/loginElements.js';
 
 export class LoginPage {
   
   constructor(page) {
     this.page = page;
-    this.email = "#email",
-    this.password = "#senha",
-    this.button_enter = 'button[class="btn btn-primary"]',
-    this.error_alert = '.alert.alert-danger'
   }
 
   async navigate() {
@@ -16,22 +13,22 @@ export class LoginPage {
 
   async login(mail, password) {
     if(mail !== null) {
-      await this.page.fill(this.email, mail);
+      await this.page.fill(login.inputEmail, mail);
     }
 
     if(password !== null) {
-      await this.page.fill(this.password, password);
+      await this.page.fill(login.inputPassword, password);
     }
 
-    await this.page.click(this.button_enter);
+    await this.page.click(login.btnEnter);
   }
 
   async message(expectMessage) {
-    await expect(this.page.locator(this.error_alert)).toBeVisible();
-    await expect(this.page.locator(this.error_alert)).toHaveText(expectMessage);
+    await expect(this.page.locator(login.errorAlert)).toBeVisible();
+    await expect(this.page.locator(login.errorAlert)).toHaveText(expectMessage);
   }
 
   async messages(expectMessages) {
-    expect(await this.page.locator(this.error_alert).allTextContents()).toEqual(expectMessages);
+    expect(await this.page.locator(login.errorAlert).allTextContents()).toEqual(expectMessages);
   }
 }
